@@ -67,7 +67,7 @@ export const Properties = () => {
       <StyledPropertiesWrapper>
         <StyledTitle>Properties</StyledTitle>
         <StyledButtonsWrapper>
-          <StyledLink to="/properties/new">
+          <StyledLink to="/properties/create">
             <StyledAddButton type="button">Add Property</StyledAddButton>
           </StyledLink>
         </StyledButtonsWrapper>
