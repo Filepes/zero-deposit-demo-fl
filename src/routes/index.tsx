@@ -3,6 +3,7 @@ import { publicRoutes } from './public-routes';
 import { protectedRoutes } from './protected-routes';
 import { ProtectedRoute } from './guard/ProtectedRoute';
 import { NotFound } from 'components/not-found';
+import { adminRoutes } from './admin-routes';
 
 export const routes = [
   {
@@ -15,7 +16,7 @@ export const routes = [
       },
       {
         element: <ProtectedRoute adminRoute />,
-        children: [...protectedRoutes],
+        children: [...adminRoutes],
       },
       {
         path: '*',

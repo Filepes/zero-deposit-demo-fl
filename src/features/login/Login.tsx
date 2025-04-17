@@ -21,7 +21,7 @@ export const Login = () => {
     console.log('da');
     try {
       await login(role as 'user' | 'admin');
-      navigate('/home');
+      navigate('/properties');
     } catch (err) {
       setError('Login failed');
     }

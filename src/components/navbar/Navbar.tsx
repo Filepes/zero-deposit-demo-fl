@@ -13,7 +13,7 @@ export const Navbar = () => {
   return (
     <StyledNav>
       <div>
-        <StyledHome to="/">Home</StyledHome>
+        <StyledHome to="/properties">Home</StyledHome>
       </div>
       <StyledNavLinksWrapper>
         {user ? (

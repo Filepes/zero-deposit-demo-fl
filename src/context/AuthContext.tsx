@@ -5,7 +5,7 @@ import {
   useContext,
   ReactNode,
 } from 'react';
-import { userService } from 'services/userService';
+import * as UserServices from 'services/userService';
 import { User } from 'types/user';
 
 interface AuthContextType {
@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const checkUser = async () => {
       try {
         if (localStorage.getItem('token')) {
-          const currentUser = await userService.getCurrentUser();
+          const currentUser = await UserServices.getCurrentUser();
           setUser(currentUser);
         }
       } catch (error) {
@@ -41,12 +41,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const login = async (role: 'user' | 'admin') => {
-    const { user } = await userService.login(role);
+    const { user } = await UserServices.login(role);
     setUser(user);
   };
 
   const logout = () => {
-    userService.logout();
+    UserServices.logout();
     localStorage.removeItem('role');
     setUser(null);
   };
