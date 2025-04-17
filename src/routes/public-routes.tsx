@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 export const publicRoutes = [
   {
     path: '/',
-    element: <Navigate to="/home" replace />,
+    element: <Navigate to="/properties" replace />,
   },
   {
     path: '/login',
