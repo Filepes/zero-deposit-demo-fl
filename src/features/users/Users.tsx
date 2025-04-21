@@ -6,14 +6,21 @@ import {
   StyledLink,
   StyledAddUserButton,
   StyledButtonsWrapper,
+  StyledViewButton,
 } from './Users.styled';
 import { useGetAllUsers } from './hooks/useGetAllUsers';
 import { User } from 'types/user';
+import { useNavigate } from 'react-router-dom';
 
 export function Users() {
   const { users, loading } = useGetAllUsers();
+  const navigate = useNavigate();
 
   if (loading) return <StyledUsersContainer>Loading...</StyledUsersContainer>;
+
+  const handleViewButton = (id: string) => {
+    navigate(`/users/${id}`);
+  };
 
   const columns: TableColumn<User>[] = [
     {
@@ -25,6 +32,15 @@ export function Users() {
       name: 'Role',
       selector: (row) => row.role,
       sortable: true,
+    },
+    {
+      name: 'Actions',
+      cell: (row) => (
+        <StyledViewButton onClick={() => handleViewButton(row.id)}>
+          View
+        </StyledViewButton>
+      ),
+      button: true,
     },
   ];
 

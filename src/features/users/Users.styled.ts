@@ -37,3 +37,17 @@ export const StyledButtonsWrapper = styled.div`
   display: flex;
   gap: 10px;
 `;
+
+export const StyledViewButton = styled.button`
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0069d9;
+  }
+`;

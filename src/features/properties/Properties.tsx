@@ -12,14 +12,16 @@ import {
   StyledAddButton,
   StyledViewButton,
   StyledButtonsWrapper,
+  StyledDeleteButton,
 } from './Properties.styled';
 import { useGetAllProperties } from './hooks/useGetAllProperties';
 import DataTable, { TableColumn } from 'react-data-table-component';
 import { filterProperties } from './utils/FilterProperties';
 import { useNavigate } from 'react-router-dom';
+import * as PropertyServices from 'services/propertyServices';
 
 export const Properties = () => {
-  const { properties, loading } = useGetAllProperties();
+  const { properties, loading, refetch } = useGetAllProperties();
   const navigate = useNavigate();
 
   const [roomFilter, setRoomFilter] = useState<string | null>(null);
@@ -30,6 +32,15 @@ export const Properties = () => {
   );
   const handleViewButton = (id: string) => {
     navigate(`/properties/${id}`);
+  };
+
+  const handleDeleteButton = async (id: string) => {
+    try {
+      await PropertyServices.deleteProperty(id);
+      await refetch();
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const columns: TableColumn<Property>[] = [
@@ -54,6 +65,15 @@ export const Properties = () => {
         <StyledViewButton onClick={() => handleViewButton(row.id)}>
           View
         </StyledViewButton>
+      ),
+      button: true,
+    },
+    {
+      name: 'Actions',
+      cell: (row) => (
+        <StyledDeleteButton onClick={() => handleDeleteButton(row.id)}>
+          Delete
+        </StyledDeleteButton>
       ),
       button: true,
     },

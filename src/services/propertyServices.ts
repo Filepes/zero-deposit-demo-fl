@@ -15,3 +15,8 @@ export const createProperty = async (propertyValues: Omit<Property, 'id'>) => {
   const response = await api.post('/api/house', propertyValues);
   return response.data;
 };
+
+export const deleteProperty = async (id: string) => {
+  const response = await api.delete(`/api/house/${id}`);
+  return response.data;
+};

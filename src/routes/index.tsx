@@ -1,9 +1,9 @@
 import { MainLayout } from 'components/main-layout';
-import { publicRoutes } from './public-routes';
-import { protectedRoutes } from './protected-routes';
-import { ProtectedRoute } from './guard/ProtectedRoute';
 import { NotFound } from 'components/not-found';
-import { adminRoutes } from './admin-routes';
+import { publicRoutes } from './public-routes/public-routes';
+import { ProtectedRoute } from './guard/ProtectedRoute';
+import { protectedRoutes } from './protected-routes/protected-routes';
+import { adminRoutes } from './admin-routes/admin-routes';
 
 export const routes = [
   {

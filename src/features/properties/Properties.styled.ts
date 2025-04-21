@@ -73,6 +73,13 @@ export const StyledViewButton = styled.button`
   }
 `;
 
+export const StyledDeleteButton = styled(StyledViewButton)`
+  background-color: red;
+  &:hover {
+    background-color: darkred;
+  }
+`;
+
 export const StyledButtonsWrapper = styled.div`
   display: flex;
   gap: 10px;
