@@ -5,7 +5,7 @@ import {
   useContext,
   ReactNode,
 } from 'react';
-import * as UserServices from 'services/userService';
+import * as UserServices from 'services/userServices';
 import { User } from 'types/user';
 
 interface AuthContextType {

@@ -36,13 +36,21 @@ export const StyledInput = styled.input`
   }
 `;
 
+export const StyledSelect = styled.select`
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+`;
+
 export const StyledError = styled(ErrorMessage)`
   color: red;
   font-size: 13px;
   margin-top: 4px;
 `;
 
-export const StyledSubmitButton = styled.button`
+export const StyledButton = styled.button`
   padding: 12px;
   font-size: 15px;
   background-color: #007bff;
@@ -57,7 +65,12 @@ export const StyledSubmitButton = styled.button`
   }
 `;
 
-export const StyledCancelButton = styled(StyledSubmitButton)`
+export const StyledSubmitButton = styled(StyledButton)`
+  background-color: #28a745;
+  color: white;
+`;
+
+export const StyledCancelButton = styled(StyledButton)`
   background-color: #6c757d;
   color: white;
 `;

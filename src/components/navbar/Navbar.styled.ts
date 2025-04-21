@@ -35,3 +35,14 @@ export const StyledLogoutButton = styled.button`
     background-color: #c82333;
   }
 `;
+
+export const StyledLink = styled(Link)`
+  padding: 12px;
+  font-size: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+`;

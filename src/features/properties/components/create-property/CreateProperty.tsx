@@ -8,6 +8,7 @@ import {
   StyledInput,
   StyledError,
   StyledSubmitButton,
+  StyledCancelButton,
 } from './CreateProperty.styled';
 import { Property } from 'types/property';
 import { createPropertySchema } from './validations/createPropertySchema';
@@ -44,24 +45,30 @@ export const CreateProperty = () => {
               <StyledFieldWrapper>
                 <StyledLabel>Address</StyledLabel>
                 <StyledInput as={Field} name="address" type="text" />
-                <StyledError name="address" />
+                <StyledError name="address" component="div" />
               </StyledFieldWrapper>
 
               <StyledFieldWrapper>
                 <StyledLabel>Number of Rooms</StyledLabel>
                 <StyledInput as={Field} name="num_rooms" type="number" />
-                <StyledError name="num_rooms" />
+                <StyledError name="num_rooms" component="div" />
               </StyledFieldWrapper>
 
               <StyledFieldWrapper>
                 <StyledLabel>Price</StyledLabel>
                 <StyledInput as={Field} name="price" type="number" />
-                <StyledError name="price" />
+                <StyledError name="price" component="div" />
               </StyledFieldWrapper>
 
               <StyledSubmitButton type="submit" disabled={isSubmitting}>
                 {isSubmitting ? 'Submitting...' : 'Create Property'}
               </StyledSubmitButton>
+              <StyledCancelButton
+                type="button"
+                onClick={() => navigate('/properties')}
+              >
+                Cancel
+              </StyledCancelButton>
             </StyledFormContainer>
           </Form>
         )}

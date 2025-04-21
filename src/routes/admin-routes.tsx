@@ -1,8 +1,13 @@
-import { Properties } from 'features/properties/Properties';
+import { Users } from 'features/users';
+import { CreateUser } from 'features/users/components/create-user';
 
 export const adminRoutes = [
   {
-    path: '/admin',
-    element: <Properties />,
+    path: '/users',
+    element: <Users />,
+  },
+  {
+    path: '/users/create',
+    element: <CreateUser />,
   },
 ];

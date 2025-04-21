@@ -30,3 +30,21 @@ export const getCurrentUser = async () => {
     role,
   };
 };
+
+export const getAllUsers = async () => {
+  const response = await api.get('/api/users');
+  return response.data;
+};
+
+export const getUserById = async (id: string): Promise<User> => {
+  const response = await api.get(`/api/user/${id}`);
+  return response.data;
+};
+
+export const createUser = async (user: {
+  username: string;
+  role: string;
+}): Promise<User> => {
+  const response = await api.post('/api/user', user);
+  return response.data;
+};

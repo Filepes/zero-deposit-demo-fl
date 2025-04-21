@@ -5,11 +5,12 @@ import {
   StyledNavLinksWrapper,
   StyledHome,
   StyledLogoutButton,
+  StyledLink,
 } from './Navbar.styled';
 import { useAuth } from 'context';
 
 export const Navbar = () => {
-  const { user, logout } = useAuth();
+  const { user, logout, isAdmin } = useAuth();
   return (
     <StyledNav>
       <div>
@@ -18,6 +19,7 @@ export const Navbar = () => {
       <StyledNavLinksWrapper>
         {user ? (
           <>
+            {isAdmin() && <StyledLink to="/users">Manage Users</StyledLink>}
             <StyledUsernameSpan>{user.username}</StyledUsernameSpan>
             <StyledLogoutButton onClick={logout}>Logout</StyledLogoutButton>
           </>
