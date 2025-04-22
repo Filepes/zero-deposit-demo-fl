@@ -13,16 +13,16 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended",
+    "plugin:prettier/recommended"
   ],
   "rules": {
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
-    "prettier/prettier": "error",
+    "prettier/prettier": "error"
   },
   "settings": {
     "react": {
-      "version": "detect",
-    },
-  },
+      "version": "detect"
+    }
+  }
 }
