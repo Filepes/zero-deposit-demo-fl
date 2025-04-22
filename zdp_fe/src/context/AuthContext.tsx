@@ -8,6 +8,7 @@ import {
 import * as UserServices from 'services/userServices';
 import { User } from 'types/user';
 
+// Auth context interface
 interface AuthContextType {
   user: User | null;
   loading: boolean;
@@ -23,6 +24,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Check if user is already logged in
     const checkUser = async () => {
       try {
         if (localStorage.getItem('token')) {
@@ -40,17 +42,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     checkUser();
   }, []);
 
+  // Log in user with specified role
   const login = async (role: 'user' | 'admin') => {
     const { user } = await UserServices.login(role);
     setUser(user);
   };
 
+  // Log out current user and clear local storage
   const logout = () => {
     UserServices.logout();
     localStorage.removeItem('role');
     setUser(null);
   };
 
+  // Check if current user has admin privileges
   const isAdmin = () => {
     return user?.role === 'admin';
   };
@@ -62,6 +67,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
+// Custom hook for using auth context values
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (context === undefined) {

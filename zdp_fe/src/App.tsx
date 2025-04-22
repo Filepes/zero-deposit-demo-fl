@@ -6,6 +6,7 @@ const router = createBrowserRouter(routes);
 
 function App() {
   return (
+    // Auth provider for user authentication
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
