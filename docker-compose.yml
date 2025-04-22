@@ -2,12 +2,24 @@ version: '3.8'
 
 services:
   frontend:
-    build: .
+    build: ./zdp_fe
     container_name: frontend
     ports:
       - "3000:3000"
     volumes:
-      - .:/app
+      - ./zdp_fe:/app
       - /app/node_modules
     environment:
       - REACT_APP_BACKEND_URL=http://localhost:5000
+
+  backend:
+    build: ./dummy_backend
+    container_name: backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./dummy_backend:/app
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+      - FRONTEND_URL=http://localhost:3000
