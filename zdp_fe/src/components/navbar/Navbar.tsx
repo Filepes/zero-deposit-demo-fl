@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import {
   StyledNav,
   StyledUsernameSpan,
@@ -17,14 +16,12 @@ export const Navbar = () => {
         <StyledHome to="/properties">Home</StyledHome>
       </div>
       <StyledNavLinksWrapper>
-        {user ? (
+        {user && (
           <>
             {isAdmin() && <StyledLink to="/users">Manage Users</StyledLink>}
             <StyledUsernameSpan>{user.username}</StyledUsernameSpan>
             <StyledLogoutButton onClick={logout}>Logout</StyledLogoutButton>
           </>
-        ) : (
-          <Link to="/login">Login</Link>
         )}
       </StyledNavLinksWrapper>
     </StyledNav>
