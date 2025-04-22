@@ -154,6 +154,13 @@ def create_house():
 @app.route('/api/house/<int:house_id>', methods=['DELETE'])
 @token_required
 def delete_house(house_id):
+    """
+    This endpoint deletes a house from the database by id.
+    
+    - If the house does not exist it returns 404.
+    - If the delete is successful it returns a success message.
+    - If there is an error during the delete it sends an error message.
+    """
     house = house_id
     if not house:
         abort(404)
